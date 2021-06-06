@@ -25,4 +25,7 @@ module.exports = {
     user.password = undefined;
     return user;
   },
+  async DeleteUser(req, res) {
+    return UserModel.destroy({ where: { id: req.params.id } });
+  },
 };
