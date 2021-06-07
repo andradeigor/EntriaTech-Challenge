@@ -6,16 +6,14 @@ module.exports = {
     const { email, password } = req.body;
     const user = await UserModel.findOne({ where: { email } });
     if (!user) {
-      res.status(400).json({ error: "Invalid Email or Password" });
-      return;
+      return res.status(400).json({ error: "Invalid Email or Password" });
     }
     const login = await UtilsBcrypt.decript(password, user.password);
     if (login) {
       const token = await Utilsjwt.encript(user.id);
-      return token;
+      return res.json({ token });
     } else {
-      res.status(400).json({ error: "Invalid Email or Password" });
-      return;
+      return res.status(400).json({ error: "Invalid Email or Password" });
     }
   },
 };
