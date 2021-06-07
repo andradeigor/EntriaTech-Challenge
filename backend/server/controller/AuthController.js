@@ -6,4 +6,8 @@ module.exports = {
       ? res.json({ token })
       : res.status(400).json({ error: "Invalid Email or Password" });
   },
+  async Me(req, res) {
+    const Id = res.locals.user;
+    res.json({ Id });
+  },
 };
