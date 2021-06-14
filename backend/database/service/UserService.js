@@ -14,7 +14,7 @@ module.exports = {
       user.password = undefined;
       return user;
     } else {
-      res.status(400).json({ error: "user alredy exist" });
+      return false;
     }
   },
   async ListUsers(req, res) {

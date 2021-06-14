@@ -5,9 +5,11 @@ module.exports = {
     const schema = Joi.object({
       name: Joi.string().min(3).required(),
       email: Joi.string().email().required(),
+      confirmEmail: Joi.string().valid(Joi.ref("email")).required(),
       password: Joi.string().min(6).required(),
       confirmPassword: Joi.string().valid(Joi.ref("password")).required(),
     });
+
     const options = {
       abortEarly: false,
     };

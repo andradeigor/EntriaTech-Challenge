@@ -16,9 +16,12 @@ import {
 } from "./styled";
 import LogoPath from "../../assets/logo.svg";
 import { Formik } from "formik";
+import { useHistory } from "react-router-dom";
 import * as yup from "yup";
-
+import axios from "axios";
+import LoginRequest from "../../services/LoginRequest";
 const LoginCard = () => {
+  const history = useHistory();
   const schema = yup.object({
     email: yup.string().required().email(),
     password: yup.string().min(6).required(),
@@ -32,7 +35,11 @@ const LoginCard = () => {
         <FormContainer>
           <Formik
             initialValues={{ email: "", password: "" }}
-            onSubmit={(values) => console.log(values)}
+            onSubmit={async (values) => {
+              axios
+                .post("http://localhost:5000/auth/", values)
+                .then((res) => console.log(res.data));
+            }}
             validationSchema={schema}
           >
             {({ values, errors, touched, handleChange, handleSubmit }) => (
@@ -59,7 +66,10 @@ const LoginCard = () => {
                   <LoginButton type="submit">
                     <LoginButtonText>Login</LoginButtonText>
                   </LoginButton>
-                  <RegisterButton>
+                  <RegisterButton
+                    type="button"
+                    onClick={() => history.push("/register")}
+                  >
                     <RegisterButtonText>Cadastre-se</RegisterButtonText>
                   </RegisterButton>
                 </ButtonsContainer>

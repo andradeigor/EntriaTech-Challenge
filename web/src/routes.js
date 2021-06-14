@@ -1,14 +1,20 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginCard from "./components/LoginCard/index";
+import RegisterCard from "./components/RegisterCard/index";
 const Routes = () => {
   return (
     <Router>
-      <Route path="/" exact>
-        <LoginCard />
-      </Route>
-      <Route path="*">
-        <h1>404 Not Found</h1>
-      </Route>
+      <Switch>
+        <Router path="/register" exact={true}>
+          <RegisterCard />
+        </Router>
+        <Route path="/" exact={true}>
+          <LoginCard />
+        </Route>
+        <Route path="*" exact={true}>
+          <h1>404 Not Found</h1>
+        </Route>
+      </Switch>
     </Router>
   );
 };
