@@ -38,7 +38,8 @@ const LoginCard = () => {
             onSubmit={async (values) => {
               axios
                 .post("http://localhost:5000/auth/", values)
-                .then((res) => console.log(res.data));
+                .then((res) => localStorage.setItem("Token", res.data.token))
+                .then(() => console.log(localStorage.getItem("Token")));
             }}
             validationSchema={schema}
           >

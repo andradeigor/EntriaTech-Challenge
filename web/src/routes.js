@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginCard from "./components/LoginCard/index";
 import RegisterCard from "./components/RegisterCard/index";
+import HomePage from "./components/HomePage/index";
 const Routes = () => {
   return (
     <Router>
@@ -8,6 +9,9 @@ const Routes = () => {
         <Router path="/register" exact={true}>
           <RegisterCard />
         </Router>
+        <Route path="/home" exact={true}>
+          <HomePage />
+        </Route>
         <Route path="/" exact={true}>
           <LoginCard />
         </Route>
