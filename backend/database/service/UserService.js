@@ -8,7 +8,7 @@ module.exports = {
     if (!replicated) {
       const user = await UserModel.create({
         name,
-        email,
+        email: email.toLowerCase(),
         password: hashedPassword,
       });
       user.password = undefined;

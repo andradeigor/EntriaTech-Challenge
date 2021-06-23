@@ -4,7 +4,9 @@ const Utilsjwt = require("../../server/utils/UtilsJwt");
 module.exports = {
   async AuthLogin(req, res) {
     const { email, password } = req.body;
-    const user = await UserModel.findOne({ where: { email } });
+    const user = await UserModel.findOne({
+      where: { email: email.toLowerCase() },
+    });
     return user && password ? await this.GetToken(user, password) : false;
   },
   async GetToken(user, password) {

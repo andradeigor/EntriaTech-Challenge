@@ -39,7 +39,9 @@ const LoginCard = () => {
               axios
                 .post("http://localhost:5000/auth/", values)
                 .then((res) => localStorage.setItem("Token", res.data.token))
-                .then(() => console.log(localStorage.getItem("Token")));
+                .then(() => {
+                  history.push("/home");
+                });
             }}
             validationSchema={schema}
           >
