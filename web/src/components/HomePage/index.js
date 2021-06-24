@@ -11,6 +11,8 @@ import {
   CardName,
   CardLikes,
   CardLikesIcon,
+  CardButtonsArea,
+  CardButtonDeslike,
 } from "./styled";
 import LogoPath from "../../assets/logoWhite.svg";
 import LogoutPath from "../../assets/logout.svg";
@@ -51,6 +53,10 @@ const HomePage = () => {
             20 Likes
           </CardLikes>
         </CardConteiner>
+        <CardButtonsArea>
+          <CardButtonDeslike></CardButtonDeslike>
+          <CardButtonDeslike></CardButtonDeslike>
+        </CardButtonsArea>
       </CardArea>
     </>
   );

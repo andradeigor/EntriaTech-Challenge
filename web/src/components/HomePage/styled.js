@@ -36,6 +36,7 @@ export const CardArea = styled.div`
   justify-content: center;
   width: 100%;
   height: 80vh;
+  flex-direction: column;
 `;
 
 export const CardConteiner = styled.div`
@@ -68,4 +69,20 @@ export const CardLikes = styled.span`
 export const CardLikesIcon = styled.img`
   margin-right: 5px;
   margin-top: 5px;
+`;
+
+export const CardButtonsArea = styled.div`
+  margin-top: 24px;
+  width: 350px;
+  padding-left: 16px;
+  padding-right: 16px;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const CardButtonDeslike = styled.div`
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: solid 3px white;
 `;
