@@ -13,10 +13,13 @@ import {
   CardLikesIcon,
   CardButtonsArea,
   CardButtonDeslike,
+  CardButtonIcon,
 } from "./styled";
 import LogoPath from "../../assets/logoWhite.svg";
 import LogoutPath from "../../assets/logout.svg";
 import LikesPath from "../../assets/likes.svg";
+import LikePath from "../../assets/like.svg";
+import ClosePath from "../../assets/close.svg";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 const HomePage = () => {
@@ -54,8 +57,12 @@ const HomePage = () => {
           </CardLikes>
         </CardConteiner>
         <CardButtonsArea>
-          <CardButtonDeslike></CardButtonDeslike>
-          <CardButtonDeslike></CardButtonDeslike>
+          <CardButtonDeslike>
+            <CardButtonIcon src={ClosePath} />
+          </CardButtonDeslike>
+          <CardButtonDeslike>
+            <CardButtonIcon src={LikePath} />
+          </CardButtonDeslike>
         </CardButtonsArea>
       </CardArea>
     </>

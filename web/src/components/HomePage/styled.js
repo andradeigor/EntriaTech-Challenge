@@ -85,4 +85,10 @@ export const CardButtonDeslike = styled.div`
   height: 60px;
   border-radius: 50%;
   border: solid 3px white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+export const CardButtonIcon = styled.img`
+  width: 30px;
 `;
