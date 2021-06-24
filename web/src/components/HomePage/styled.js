@@ -30,7 +30,7 @@ export const LogoutButtonContainer = styled.div`
 `;
 export const LogoutButton = styled.img``;
 
-export const CardContainer = styled.div`
+export const CardArea = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,8 +38,34 @@ export const CardContainer = styled.div`
   height: 80vh;
 `;
 
+export const CardConteiner = styled.div`
+  position: relative;
+`;
 export const CardImage = styled.img`
   width: 350px;
   height: 350px;
   object-fit: cover;
+  border-radius: 30px;
+`;
+
+export const CardName = styled.span`
+  position: absolute;
+  z-index: 1;
+  top: 84%;
+  left: 5%;
+  font-weight: 600;
+  font-size: 18px;
+`;
+export const CardLikes = styled.span`
+  position: absolute;
+  z-index: 1;
+  top: 90%;
+  left: 5%;
+  font-weight: 400;
+  font-size: 12px;
+`;
+
+export const CardLikesIcon = styled.img`
+  margin-right: 5px;
+  margin-top: 5px;
 `;
