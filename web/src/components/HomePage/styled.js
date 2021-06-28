@@ -22,7 +22,7 @@ export const NameContant = styled.span`
 `;
 
 export const Logo = styled.img`
-  height: 60px;
+  height: 45px;
 `;
 export const LogoutButtonContainer = styled.div`
   display: flex;
@@ -88,6 +88,7 @@ export const CardButtonDeslike = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `;
 export const CardButtonIcon = styled.img`
   width: 30px;
@@ -126,4 +127,18 @@ export const ButtonText = styled.span`
   font-weight: 300;
   font-family: "Poppins", sans-serif;
   color: ${(props) => String(props.TxColor)};
+`;
+
+export const Footer = styled.footer`
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+`;
+export const FooterText = styled.span`
+  font-size: 18px;
+  font-weight: 100;
 `;

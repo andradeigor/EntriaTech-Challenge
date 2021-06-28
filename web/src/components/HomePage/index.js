@@ -17,6 +17,8 @@ import {
   ButtonsArea,
   MyButton,
   ButtonText,
+  Footer,
+  FooterText,
 } from "./styled";
 import LogoPath from "../../assets/logoWhite.svg";
 import LogoutPath from "../../assets/logout.svg";
@@ -76,6 +78,9 @@ const HomePage = () => {
           </MyButton>
         </ButtonsArea>
       </CardArea>
+      <Footer>
+        <FooterText>Criado e desenvolvido por @AndradeeeIgor</FooterText>
+      </Footer>
     </>
   );
 };
