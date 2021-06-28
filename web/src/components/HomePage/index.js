@@ -14,6 +14,9 @@ import {
   CardButtonsArea,
   CardButtonDeslike,
   CardButtonIcon,
+  ButtonsArea,
+  MyButton,
+  ButtonText,
 } from "./styled";
 import LogoPath from "../../assets/logoWhite.svg";
 import LogoutPath from "../../assets/logout.svg";
@@ -64,6 +67,14 @@ const HomePage = () => {
             <CardButtonIcon src={LikePath} />
           </CardButtonDeslike>
         </CardButtonsArea>
+        <ButtonsArea>
+          <MyButton BgColor="#202020">
+            <ButtonText TxColor="#FFFFFF">Minhas Capivaras</ButtonText>
+          </MyButton>
+          <MyButton BgColor="#BB86FC">
+            <ButtonText TxColor="#121212">Adicionar</ButtonText>
+          </MyButton>
+        </ButtonsArea>
       </CardArea>
     </>
   );

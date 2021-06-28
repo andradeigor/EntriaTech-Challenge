@@ -92,3 +92,38 @@ export const CardButtonDeslike = styled.div`
 export const CardButtonIcon = styled.img`
   width: 30px;
 `;
+
+export const ButtonsArea = styled.div`
+  width: 100%;
+  height: 40px;
+  margin-top: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const MyButton = styled.button`
+  width: 250px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: ${(props) => String(props.BgColor)};
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 64px;
+  margin-left: 64px;
+  border: none;
+  :active {
+    position: relative;
+    top: -0.5px;
+  }
+`;
+
+export const ButtonText = styled.span`
+  font-size: 18px;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  color: ${(props) => String(props.TxColor)};
+`;
