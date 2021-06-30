@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post("/", AuthMiddleware.TokenMiddleware,CapivaraMiddleware.CreateCapivara,CapivaraController.CreateCapivara)
 router.get("/", AuthMiddleware.TokenMiddleware, CapivaraController.ListCapivaras)
-router.delete("/", AuthMiddleware.TokenMiddleware, CapivaraController.DeleteCapivara)
+router.delete("/", AuthMiddleware.TokenMiddleware,CapivaraMiddleware.DeleteCapivara, CapivaraController.DeleteCapivara)
 
 
 module.exports = router;

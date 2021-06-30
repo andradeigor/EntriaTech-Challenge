@@ -17,6 +17,9 @@ module.exports = {
         const {id } = req.body;
         const userId = res.locals.user
         const capivara = await CapivaraModel.findByPk(id);
+        if(!capivara){
+            return false;
+        }
         if(capivara.userId ===Number(userId)){
             await CapivaraModel.destroy({where:{id}})
             return capivara

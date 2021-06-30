@@ -19,6 +19,25 @@ module.exports = {
           } else {
             next();
           }
+    },
+    async DeleteCapivara(req,res,next){
+      const schema = Joi.object({
+        id: Joi.number().required()
+      })
+      const options = {
+        abortEarly: false,
     }
+      const {error} = schema.validate(req.body, options)
+
+      if (error) {
+          res.status(400).json({
+            error: `Validation error: ${error.details
+              .map((error) => error.message)
+              .join(", ")}`,
+          });
+        } else {
+          next();
+        }
+      }
 
 }
