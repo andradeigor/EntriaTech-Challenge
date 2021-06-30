@@ -1,11 +1,11 @@
 const express = require("express");
 const CapivaraController = require("../controller/CapivaraController");
+const CapivaraMiddleware = require("../middleware/CapivaraMiddleware")
+const AuthMiddleware = require("../middleware/AuthMiddleware")
 const router = express.Router();
 
+router.post("/", AuthMiddleware.TokenMiddleware,CapivaraMiddleware.CreateCapivara,CapivaraController.CreateCapivara)
 
-router.get("/", (req,res)=>{
-    res.json({menssage: "Ok"})
-})
 
 module.exports = router;
 
