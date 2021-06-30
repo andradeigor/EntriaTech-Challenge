@@ -47,6 +47,7 @@ export const CardImage = styled.img`
   height: 350px;
   object-fit: cover;
   border-radius: 30px;
+  pointer-events: none;
 `;
 
 export const CardName = styled.span`
