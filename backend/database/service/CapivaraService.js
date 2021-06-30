@@ -1,3 +1,4 @@
+const Usermodel = require("../models/UserModel")
 const CapivaraModel = require("../models/CapivaraModel");
 
 module.exports = {
@@ -11,5 +12,14 @@ module.exports = {
     },
     async ListCapivaras(req,res){
         return CapivaraModel.findAll()
+    },
+    async DeleteCapivara(req,res){
+        const {id } = req.body;
+        const userId = res.locals.user
+        const capivara = await CapivaraModel.findByPk(id);
+        if(capivara.userId ===Number(userId)){
+            await CapivaraModel.destroy({where:{id}})
+            return capivara
+        }else{return false}
     }
 }
