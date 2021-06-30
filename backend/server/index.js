@@ -14,5 +14,3 @@ app.use("/auth/", AuthRouter);
 app.listen(5000, () => {
   console.log("hi, I'm up");
 });
-
-console.log("tentando")
