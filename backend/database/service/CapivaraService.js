@@ -8,5 +8,8 @@ module.exports = {
             name,userId,imageURL,likes: 0
         })
         return capivara
+    },
+    async ListCapivaras(req,res){
+        return CapivaraModel.findAll()
     }
 }

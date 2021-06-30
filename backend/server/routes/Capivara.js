@@ -5,6 +5,7 @@ const AuthMiddleware = require("../middleware/AuthMiddleware")
 const router = express.Router();
 
 router.post("/", AuthMiddleware.TokenMiddleware,CapivaraMiddleware.CreateCapivara,CapivaraController.CreateCapivara)
+router.get("/", AuthMiddleware.TokenMiddleware, CapivaraController.ListCapivaras)
 
 
 module.exports = router;
