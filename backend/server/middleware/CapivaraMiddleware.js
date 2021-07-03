@@ -1,43 +1,62 @@
-const Joi = require("joi")
+const Joi = require("joi");
 module.exports = {
-    async CreateCapivara(req,res,next){
-        const schema = Joi.object({
-            name: Joi.string().min(3).required(),
-            imageURL: Joi.string().min(10).required()
-        })
-        const options = {
-            abortEarly: false,
-        }
-        const {error} = schema.validate(req.body, options)
+  async CreateCapivara(req, res, next) {
+    const schema = Joi.object({
+      name: Joi.string().min(3).required(),
+      imageURL: Joi.string().min(10).required(),
+    });
+    const options = {
+      abortEarly: false,
+    };
+    const { error } = schema.validate(req.body, options);
 
-        if (error) {
-            res.status(400).json({
-              error: `Validation error: ${error.details
-                .map((error) => error.message)
-                .join(", ")}`,
-            });
-          } else {
-            next();
-          }
-    },
-    async DeleteCapivara(req,res,next){
-      const schema = Joi.object({
-        id: Joi.number().required()
-      })
-      const options = {
-        abortEarly: false,
+    if (error) {
+      res.status(400).json({
+        error: `Validation error: ${error.details
+          .map((error) => error.message)
+          .join(", ")}`,
+      });
+    } else {
+      next();
     }
-      const {error} = schema.validate(req.body, options)
+  },
+  async DeleteCapivara(req, res, next) {
+    const schema = Joi.object({
+      id: Joi.number().required(),
+    });
+    const options = {
+      abortEarly: false,
+    };
+    const { error } = schema.validate(req.body, options);
 
-      if (error) {
-          res.status(400).json({
-            error: `Validation error: ${error.details
-              .map((error) => error.message)
-              .join(", ")}`,
-          });
-        } else {
-          next();
-        }
-      }
-
-}
+    if (error) {
+      res.status(400).json({
+        error: `Validation error: ${error.details
+          .map((error) => error.message)
+          .join(", ")}`,
+      });
+    } else {
+      next();
+    }
+  },
+  async UpdateCapivara(req, res, next) {
+    const schema = Joi.object({
+      id: Joi.number().required(),
+      name: Joi.string().min(3).required(),
+      imageURL: Joi.string().min(10).required(),
+    });
+    const options = {
+      abortEarly: false,
+    };
+    const { error } = schema.validate(req.body, options);
+    if (error) {
+      res.status(400).json({
+        error: `Validation error: ${error.details
+          .map((error) => error.message)
+          .join(", ")}`,
+      });
+    } else {
+      next();
+    }
+  },
+};
