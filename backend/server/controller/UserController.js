@@ -7,4 +7,10 @@ module.exports = {
       ? res.json({ user })
       : res.status(400).json({ error: "user alredy exist" });
   },
+  async GetUser(req, res) {
+    const user = await UserService.GetUser(req, res);
+    user
+      ? res.json({ user })
+      : res.status(400).json({ error: "User Not Found" });
+  },
 };

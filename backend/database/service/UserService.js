@@ -20,8 +20,11 @@ module.exports = {
   async ListUsers(req, res) {
     return await UserModel.findAll({ attributes: { exclude: ["password"] } });
   },
-  async ListUser(req, res) {
+  async GetUser(req, res) {
     const user = await UserModel.findByPk(res.locals.user);
+    if (!user) {
+      return false;
+    }
     user.password = undefined;
     return user;
   },

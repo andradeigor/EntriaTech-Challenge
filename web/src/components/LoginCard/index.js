@@ -20,12 +20,18 @@ import { useHistory } from "react-router-dom";
 import * as yup from "yup";
 import axios from "axios";
 import LoginRequest from "../../services/LoginRequest";
+import { useEffect } from "react";
 const LoginCard = () => {
   const history = useHistory();
   const schema = yup.object({
     email: yup.string().required().email(),
     password: yup.string().min(6).required(),
   });
+  useEffect(() => {
+    if (localStorage.getItem("Token")) {
+      history.push("/home");
+    }
+  }, []);
   return (
     <CardContainer>
       <Card>

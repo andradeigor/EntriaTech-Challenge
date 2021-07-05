@@ -25,14 +25,21 @@ import LogoutPath from "../../assets/logout.svg";
 import LikesPath from "../../assets/likes.svg";
 import LikePath from "../../assets/like.svg";
 import ClosePath from "../../assets/close.svg";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import UserInfo from "../../services/UserInfo";
+import Capivaras from "../../services/Capivaras";
 const HomePage = () => {
+  const [userData, SetUserData] = useState({});
+  const [capivaras, SetCapivaras] = useState([{}]);
   const history = useHistory();
-  useEffect(() => {
+  useEffect(async () => {
     const token = localStorage.getItem("Token");
     if (token) {
-      console.log(token);
+      const data = await UserInfo(token);
+      SetUserData(data);
+      const capivaras = await Capivaras(token);
+      SetCapivaras(capivaras);
     } else {
       history.push("/");
     }
@@ -46,7 +53,7 @@ const HomePage = () => {
       <HeaderContainer>
         <HeaderName>
           <Logo src={LogoPath} />
-          <NameContant>Bem-Vindo, Igor de Andrade</NameContant>
+          <NameContant>Bem-Vindo, {userData.name}</NameContant>
         </HeaderName>
         <LogoutButtonContainer>
           <LogoutButton src={LogoutPath} onClick={handleLogout} />
@@ -54,11 +61,11 @@ const HomePage = () => {
       </HeaderContainer>
       <CardArea>
         <CardConteiner>
-          <CardImage src="https://i.imgur.com/UY4ONvu.jpeg"></CardImage>
-          <CardName>Capivara Leitora</CardName>
+          <CardImage src={capivaras[0].imageURL}></CardImage>
+          <CardName>{capivaras[0].name}</CardName>
           <CardLikes>
             <CardLikesIcon src={LikesPath} />
-            20 Likes
+            {capivaras[0].likes} Likes
           </CardLikes>
         </CardConteiner>
         <CardButtonsArea>
